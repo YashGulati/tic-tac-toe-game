@@ -1,7 +1,7 @@
 $(document).ready(function(){
   initiateVars();
   loadDocElements();
-  // eventHandlers();
+  eventHandlers();
 });
 
 var sec = [];
@@ -26,6 +26,9 @@ function initiateVars(){
     sec.push($('.sec:nth-child('+(i+1)+')'));
     cross.push($('.cross:nth-child('+(i+1)+')'));
   }
+}
+
+function eventHandlers(){
   $('.cross').click(function(){
     var index = $(this).index();
     console.log(index);
@@ -33,11 +36,11 @@ function initiateVars(){
   });
   $('.sec').click(function(){
     var index = $(this).index();
+    var left = sec[index].css('left');
+    var top = sec[index].css('top');
     console.log(index);
     cross[index].css('display','block');
-    var left = sec[index].css('left');
-    console.log(left);
     cross[index].css('left',left);
+    cross[index].css('top',top);
   });
-
 }
