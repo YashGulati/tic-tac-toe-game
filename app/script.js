@@ -42,5 +42,6 @@ function eventHandlers(){
     cross[index].css('display','block');
     cross[index].css('left',left);
     cross[index].css('top',top);
+    cross[index].css('z-index','99');
   });
 }
