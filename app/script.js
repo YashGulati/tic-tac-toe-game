@@ -1,11 +1,17 @@
+var sec = [];
+var cross = [];
+var player = 0;
+
 $(document).ready(function(){
+  askPlayer();
   initiateVars();
   loadDocElements();
   eventHandlers();
 });
 
-var sec = [];
-var cross = [];
+function askPlayer(){
+  
+}
 
 function loadDocElements(){
   var left = 0;
