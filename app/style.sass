@@ -1,11 +1,26 @@
 // compileCompressed: style.css
 
+$gameBoardH : 80vh
+$gameBoardW : 75vh
+$gameScreenH : 65vh
+$gameScreenW : 60vh
 *
-  height: 100%
   margin: 0px
   padding: 0px
   box-sizing: border-box
-.gameboard
-  width: 50%
-  height: 50%
-  border: 5px solid #447722
+.gameBoard
+  height: $gameBoardH
+  width: $gameBoardW
+  margin: 2% auto
+  background-color: #eac086
+  border: 2px solid red
+  border-radius: 5%
+  position: relative
+  .gameScreen
+    height: $gameScreenH
+    width: $gameScreenW
+    background-color: #004400
+    position: absolute
+    border: 2px solid red
+    top: $gameBoardH/2 - $gameScreenH/2
+    left: $gameBoardW/2 - $gameScreenW/2

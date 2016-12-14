@@ -8,21 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YashGulati/pomodoro-clock.git"
+    "url": "git+https://github.com/YashGulati/tic-tac-toe-game.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/YashGulati/pomodoro-clock/issues"
+    "url": "https://github.com/YashGulati/tic-tac-toe-game/issues"
   },
-  "homepage": "https://github.com/YashGulati/pomodoro-clock#readme",
+  "homepage": "https://github.com/YashGulati/tic-tac-toe-game#readme",
   "devDependencies": {
     "browser-sync": "^2.18.2",
-    "browserify": "^13.1.1",
-    "gulp": "^3.9.1",
-    "gulp-sass": "^2.3.2",
-    "gulp-uglify": "^2.0.0",
-    "node-watch": "^0.4.1",
-    "uglify": "^0.1.5"
+    "gulp": "^3.9.1"
+
   }
 }
