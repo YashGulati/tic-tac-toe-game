@@ -5,7 +5,6 @@ $(document).ready(function(){
 
 var sec = [];
 var cross = [];
-var num = [];
 
 function initiateSections(){
   for(var i=0;i<9;i++){
