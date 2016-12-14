@@ -23,6 +23,7 @@ function initiateVars(){
   }
   $('.cross').click(function(){
     var index = $(this).index();
+    console.log(index);
     cross[index].css('display','none');
   });
   $('.sec').click(function(){
@@ -31,13 +32,4 @@ function initiateVars(){
     cross[index].css('display','block');
   });
 
-// for(var i=0;i<9;i++){
-//   sec[i].click(function(){
-//     cross[i].toggle();
-//   });
-// }
-
-  // sec[1].click(function(){
-  //   alert('2');
-  // });
 }
