@@ -11,11 +11,11 @@ function loadDocElements(){
   var left = 0;
   var top  = 0;
   for(var i=0;i<=8;i++){
-    console.log(top);
+    top = parseInt(i/3) * 33.3333;
     sec[i].css('left',left+'%');
     sec[i].css('top',( top+'%'));
     left += 33.3333;
-    top = parseInt(i/3) * 33.3333;
+    console.log(top);
     if(left>99) left=0;
 
   }
