@@ -1,6 +1,6 @@
 $(document).ready(function(){
-  // loadDocElements();
   initiateVars();
+  loadDocElements();
   // eventHandlers();
 });
 
@@ -8,11 +8,9 @@ var sec = [];
 var cross = [];
 
 function loadDocElements(){
-  var left = 33.3333 ;
-  for(var i=2;i<=9;i++){
-    $('.cross:nth-child('+i+')').css({'background-color': 'green','left': left+'%','top': '33.33%'});
-    left += left;
-    if(left>100) left = 33.3333;
+  var left = 100/3 ;
+  for(var i=1;i<=8;i++){
+    sec[i].css('left',(i*left+'%'));
   }
 }
 
@@ -30,6 +28,9 @@ function initiateVars(){
     var index = $(this).index();
     console.log(index);
     cross[index].css('display','block');
+    var left = sec[index].css('left');
+    console.log(left);
+    cross[index].css('left',left);
   });
 
 }
