@@ -8,9 +8,14 @@ var sec = [];
 var cross = [];
 
 function loadDocElements(){
-  var left = 100/3 ;
-  for(var i=1;i<=8;i++){
-    sec[i].css('left',(i*left+'%'));
+  var left = 0;
+  var top  = 0;
+  for(var i=0;i<=8;i++){
+    sec[i].css('left',(left+'%'));
+    sec[i].css('top',( top+'%'));
+    left += 33.3333;
+    top +
+    if(left>100) left=100/3;
   }
 }
 
