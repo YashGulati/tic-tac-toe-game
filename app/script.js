@@ -12,10 +12,10 @@ function initiateSections(){
     cross.push($('.cross:nth-child('+(i+1)+')'));
   }
   sec[0].click(function(){
-    alert('sec');
+    cross[0].css('display','block');
   });
   cross[0].click(function(){
-    alert('cross');
+    cross[0].css('display','none');
   });
 
 // for(var i=0;i<9;i++){
