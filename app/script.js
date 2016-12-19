@@ -1,6 +1,7 @@
 var sec = [];
 var cross = [];
 var players = 0;
+var player1 = "";
 
 $(document).ready(function(){
   askPlayer();
@@ -59,10 +60,10 @@ function askXO(){
   $(".options>div:nth-child(2)").html("O");
   $(".options").css("font-size","3em");
   $(".message").css("margin","10vh 10vh 2vh 10vh");
-  $('.askPlayer>.options>div:nth-child(1)').click(function(){
-    alert("1 player");
-  });
-  $('.askPlayer>.options>div:nth-child(2)').click(function(){
-    alert("2 player");
-  });
+  $('.askPlayer>.options>div:nth-child(1)').click(function(){ player1 = "X";  game(); });
+  $('.askPlayer>.options>div:nth-child(2)').click(function(){ player1 = "O"; game(); });
+}
+
+function game(){
+    $('.gameScreen>*').toggle();
 }
