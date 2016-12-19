@@ -11,8 +11,10 @@ $(document).ready(function(){
 
 function askPlayer(){
   $('.gameScreen>*').toggle();
-  $('.askPlayer').html("<div class='message'>How do you want to play?</div><div class=options><div>One Player</div><div>Two Player</div></div");
   $('.askPlayer').toggle();
+  $('.askPlayer').html("<div class='message'>How do you want to play?</div><div class=options><div>One Player</div><div>Two Player</div></div");
+  $('.askPlayer>.options>div:nth-child(1)').click(onePlayer());
+  $('.askPlayer>.options>div:nth-child(1)').click(twoPlayer());
 }
 
 function loadDocElements(){
@@ -49,4 +51,12 @@ function eventHandlers(){
     cross[index].css('top',top);
     cross[index].css('z-index','99');
   });
+}
+
+function onePlayer(){
+
+}
+
+function twoPlayer(){
+
 }
