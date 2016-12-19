@@ -10,7 +10,9 @@ $(document).ready(function(){
 });
 
 function askPlayer(){
-  
+  $('.gameScreen>*').toggle();
+  $('.askPlayer').html("<div class='message'>How do you want to play?</div><div class=options><div>One Player</div><div>Two Player</div></div>");
+  $('.askPlayer').toggle();
 }
 
 function loadDocElements(){
@@ -21,7 +23,6 @@ function loadDocElements(){
     sec[i].css('left',left+'%');
     sec[i].css('top',( top+'%'));
     left += 33.3333;
-    console.log(top);
     if(left>99) left=0;
 
   }
@@ -37,14 +38,12 @@ function initiateVars(){
 function eventHandlers(){
   $('.cross').click(function(){
     var index = $(this).index();
-    console.log(index);
     cross[index].css('display','none');
   });
   $('.sec').click(function(){
     var index = $(this).index();
     var left = sec[index].css('left');
     var top = sec[index].css('top');
-    console.log(index);
     cross[index].css('display','block');
     cross[index].css('left',left);
     cross[index].css('top',top);
