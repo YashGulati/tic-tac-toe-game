@@ -1,6 +1,6 @@
 var sec = [];
 var cross = [];
-var player = 0;
+// var players = 0;
 
 $(document).ready(function(){
   askPlayer();
@@ -13,8 +13,8 @@ function askPlayer(){
   $('.gameScreen>*').toggle();
   $('.askPlayer').toggle();
   $('.askPlayer').html("<div class='message'>How do you want to play?</div><div class=options><div>One Player</div><div>Two Player</div></div");
-  $('.askPlayer>.options>div:nth-child(1)').click(onePlayer());
-  $('.askPlayer>.options>div:nth-child(1)').click(twoPlayer());
+  $('.askPlayer>.options>div:nth-child(1)').click(function(){ onePlayer(); });
+  $('.askPlayer>.options>div:nth-child(2)').click(function(){ twoPlayer(); });
 }
 
 function loadDocElements(){
@@ -53,10 +53,19 @@ function eventHandlers(){
   });
 }
 
-function onePlayer(){
+function askXO(){
+  $(".message").html("Would you like to be X or O?");
+  $(".options>div:nth-child(1)").html("X");
+  $(".options>div:nth-child(2)").html("O");
+  $(".options").css("font-size","3em");
+  $(".message").css("margin","10vh 10vh 2vh 10vh");
+}
 
+
+function onePlayer(){
+  askXO();
 }
 
 function twoPlayer(){
-
+  askXO();
 }
