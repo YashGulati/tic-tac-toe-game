@@ -11,7 +11,7 @@ $(document).ready(function(){
 
 function askPlayer(){
   $('.gameScreen>*').toggle();
-  $('.askPlayer').html("<div class='message'>How do you want to play?</div><div class=options><div>One Player</div><div>Two Player</div></div>");
+  $('.askPlayer').html("<div class='message'>How do you want to play?</div><div class=options><div>One Player</div><div>Two Player</div></div");
   $('.askPlayer').toggle();
 }
 

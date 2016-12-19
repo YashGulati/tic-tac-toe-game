@@ -50,22 +50,26 @@ $secH : $gameScreenH/3
       text-align: center
       // margin: 10vh
       font-family: cursive
+      // border: 2px solid red
       .message
         font-size: 2em
         display: block
         margin: 10vh
       .options
         font-size: 1.5em
-        padding: 0 5vh
         text-align: center
-        div:nth-child(1)
-          border: 3px dashed white
+        padding: 2vh 5vh
+        // border: 2px solid red
+        div
           border-radius: 20%
-          width: 40%
-          float: left
+          width: 45%
           cursor: pointer
+        div:nth-child(1)
+          float: left
         div:nth-child(2)
           float: right
+        div:hover
+          border: 3px dashed white
 .turns
   color: white
   font-family: arial
