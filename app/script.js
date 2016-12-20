@@ -2,12 +2,13 @@ var sec = [];
 var cross = [];
 var players = 0;
 var player1 = "";
+var player2 = "";
+var computer = "";
 
 $(document).ready(function(){
   askPlayer();
   initiateVars();
   loadDocElements();
-  eventHandlers();
 });
 
 function askPlayer(){
@@ -51,6 +52,7 @@ function eventHandlers(){
     cross[index].css('left',left);
     cross[index].css('top',top);
     cross[index].css('z-index','99');
+    cross[index].html(player1);
   });
 }
 
@@ -67,5 +69,5 @@ function askXO(){
 function game(){
     var turn = "p1"; // should be randomized later.
     $('.gameScreen>*').toggle();
-
+    eventHandlers();
 }
