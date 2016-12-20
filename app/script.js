@@ -93,8 +93,12 @@ function computerTurn(){
     cross[index].css('top',top);
     cross[index].css('z-index','99');
     cross[index].html(computer);
-    sections[index+1] = "on";
-    turn = "p1";
-    tokensUsed++;
+    showToken(index, computer);
   }, 1000);
+}
+
+function showToken(index, token){
+  sections[index+1] = "on";
+  if (turn == "com") turn = "p1";
+  tokensUsed++;
 }
