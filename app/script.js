@@ -5,6 +5,7 @@ var player1 = "";
 var player2 = "";
 var computer = "";
 var turn = "p1"; // should be randomized later.
+var tokensUsed = 0;
 var sections = { 1: "off", 2: "off", 3: "off", 4: "off", 5: "off", 6: "off", 7: "off", 8: "off", 9: "off" };
 $(document).ready(function(){
   askPlayer();
@@ -56,6 +57,8 @@ function eventHandlers(){
       cross[index].css('z-index','99');
       cross[index].html(player1);
       turn = "com";
+      tokensUsed++;
+      computerTurn();
       sections[index+1] = "on";
     }
   });
@@ -74,4 +77,24 @@ function askXO(){
 function game(){
     $('.gameScreen>*').toggle();
     eventHandlers();
+}
+
+function computerTurn(){
+  myVar = setTimeout(function(){
+    if( tokensUsed == 9 ){ return; }
+    var index  = Math.floor(Math.random() * 9);
+    while( sections[index+1] == "on"  ){
+      index  = Math.floor(Math.random() * 9);
+    }
+    var left = sec[index].css('left');
+    var top = sec[index].css('top');
+    cross[index].css('display','block');
+    cross[index].css('left',left);
+    cross[index].css('top',top);
+    cross[index].css('z-index','99');
+    cross[index].html(computer);
+    sections[index+1] = "on";
+    turn = "p1";
+    tokensUsed++;
+  }, 1000);
 }
