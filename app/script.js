@@ -4,6 +4,7 @@ var players = 0;
 var player1 = "";
 var player2 = "";
 var computer = "";
+var turn = "p1"; // should be randomized later.
 
 $(document).ready(function(){
   askPlayer();
@@ -40,19 +41,22 @@ function initiateVars(){
 }
 
 function eventHandlers(){
-  $('.cross').click(function(){
-    var index = $(this).index();
-    cross[index].css('display','none');
-  });
+  // $('.cross').click(function(){
+  //     var index = $(this).index();
+  //     cross[index].css('display','none');
+  // });
   $('.sec').click(function(){
-    var index = $(this).index();
-    var left = sec[index].css('left');
-    var top = sec[index].css('top');
-    cross[index].css('display','block');
-    cross[index].css('left',left);
-    cross[index].css('top',top);
-    cross[index].css('z-index','99');
-    cross[index].html(player1);
+    if(turn == "p1"){
+      var index = $(this).index();
+      var left = sec[index].css('left');
+      var top = sec[index].css('top');
+      cross[index].css('display','block');
+      cross[index].css('left',left);
+      cross[index].css('top',top);
+      cross[index].css('z-index','99');
+      cross[index].html(player1);
+      turn = "com";
+    }
   });
 }
 
@@ -67,7 +71,6 @@ function askXO(){
 }
 
 function game(){
-    var turn = "p1"; // should be randomized later.
     $('.gameScreen>*').toggle();
     eventHandlers();
 }
