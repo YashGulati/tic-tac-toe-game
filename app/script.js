@@ -5,7 +5,7 @@ var player1 = "";
 var player2 = "";
 var computer = "";
 var turn = "p1"; // should be randomized later.
-
+var sections = { 1: "off", 2: "off", 3: "off", 4: "off", 5: "off", 6: "off", 7: "off", 8: "off", 9: "off" };
 $(document).ready(function(){
   askPlayer();
   initiateVars();
@@ -56,6 +56,7 @@ function eventHandlers(){
       cross[index].css('z-index','99');
       cross[index].html(player1);
       turn = "com";
+      sections[index+1] = "on";
     }
   });
 }
