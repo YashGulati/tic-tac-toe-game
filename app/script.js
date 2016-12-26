@@ -98,7 +98,7 @@ function computerTurn(){
 }
 
 function showToken(index, token){
-  sections[index+1] = "on";
+  sections[index+1] = "on"; 
   if (turn == "com") turn = "p1";
   tokensUsed++;
 }
