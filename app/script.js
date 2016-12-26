@@ -97,9 +97,10 @@ function showToken(index, token){
   cross[index].css('top',top);
   cross[index].css('z-index','99');
   cross[index].html(token);
-  sections[index+1] = "on";
+  sections[index+1] = token;
   if (turn == "com") turn = "p1";
   tokensUsed++;
+  checkIfWon(token);
 }
 
 function computeIndex(){ var flag,i,adjacents=0,remainingSlot=0;
@@ -117,5 +118,18 @@ function computeIndex(){ var flag,i,adjacents=0,remainingSlot=0;
     if(adjacents == 2)
       console.log("Remaining Slot: "+remainingSlot);
     return Math.floor(Math.random() * 9);
+  }
+}
+
+function checkIfWon(token){ var i,won=1;
+  for(i=1;i<=3;i++)
+    if(sections[i] != token )
+      won=0;
+
+  if(won == 1){
+    console.log(token+" won! no need to continue playing!!!");
+  }
+  else {
+    console.log(token+" Not won");
   }
 }
