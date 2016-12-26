@@ -62,16 +62,17 @@ function player1TurnHandler(){
   $('.sec').on("click",function(){
     if(turn == "p1"){
       var index = $(this).index();
-      var left = sec[index].css('left');
-      var top = sec[index].css('top');
-      cross[index].css('display','block');
-      cross[index].css('left',left);
-      cross[index].css('top',top);
-      cross[index].css('z-index','99');
-      cross[index].html(player1);
-      turn = "com";
-      tokensUsed++;
-      sections[index+1] = "on";
+      // var left = sec[index].css('left');
+      // var top = sec[index].css('top');
+      // cross[index].css('display','block');
+      // cross[index].css('left',left);
+      // cross[index].css('top',top);
+      // cross[index].css('z-index','99');
+      // cross[index].html(player1);
+      // turn = "com";
+      // tokensUsed++;
+      // sections[index+1] = "on";
+      showToken(index, player1);
       computerTurn();
     }
   });
@@ -128,6 +129,15 @@ function checkIfWon(token){ var i,won=1;
 
   if(won == 1){
     console.log(token+" won! no need to continue playing!!!");
+    if(token == player1)
+    $(".message").html("Congrats!!! "+player1+" Won!");
+    $(".options>div:nth-child(1)").html("Restart Game");
+    $(".options>div:nth-child(2)").html("");
+    $(".options>div:nth-child(2)").css("width","100%");
+    $(".options>div:nth-child(1)").click(functions(){
+      window.location.reload();
+    });
+    $('.gameScreen>*').toggle();
   }
   else {
     console.log(token+" Not won");
