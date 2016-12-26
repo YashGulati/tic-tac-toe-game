@@ -79,12 +79,12 @@ function game(){
     eventHandlers();
 }
 
-function computerTurn(){
+function computerTurn(){ var index;
   myVar = setTimeout(function(){
     if( tokensUsed == 9 ){ return; }
-    var index  = Math.floor(Math.random() * 9);
+    index = computeIndex();
     while( sections[index+1] == "on"  ){
-      index  = Math.floor(Math.random() * 9);
+      index = computeIndex();
     }
     var left = sec[index].css('left');
     var top = sec[index].css('top');
@@ -98,7 +98,15 @@ function computerTurn(){
 }
 
 function showToken(index, token){
-  sections[index+1] = "on"; 
+  sections[index+1] = "on";
   if (turn == "com") turn = "p1";
   tokensUsed++;
+}
+
+function computeIndex(){
+  if(tokensUsed <= 3 )
+    return Math.floor(Math.random() * 9);
+  else
+    return Math.floor(Math.random() * 9);
+    
 }
