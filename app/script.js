@@ -6,11 +6,30 @@ var player2 = "";
 var computer = "";
 var turn = "p1"; // should be randomized later.
 var tokensUsed = 0;
+var tokensUsed_cache = 0;
 var sections = { 1: "off", 2: "off", 3: "off", 4: "off", 5: "off", 6: "off", 7: "off", 8: "off", 9: "off" };
 
-function game(){
+function game(){ var turnNumber;
     $('.gameScreen>*').toggle();
-    player1Turn();
+    for(turnNumber=1;turnNumber<=9;turnNumber++){
+      if(turnNumber%2==0)
+        player1Turn();
+      else{
+        function compTurn(){
+          if(tokensUsed===tokensUsed_cache) {
+            setTimeout(compTurn, 50);
+            return;
+          }
+          tokensUsed_cache=tokensUsed;
+        }
+        compTurn();
+      }
+
+      }
+
+
+    }
+
 }
 
 $(document).ready(function(){
@@ -58,7 +77,7 @@ function initiateVars(){
 }
 
 function player1Turn(){
-  $('.sec').click(function(){
+  $('.sec').on("click",function(){
     if(turn == "p1"){
       var index = $(this).index();
       var left = sec[index].css('left');
@@ -70,7 +89,6 @@ function player1Turn(){
       cross[index].html(player1);
       turn = "com";
       tokensUsed++;
-      computerTurn();
       sections[index+1] = "on";
     }
   });
