@@ -7,6 +7,12 @@ var computer = "";
 var turn = "p1"; // should be randomized later.
 var tokensUsed = 0;
 var sections = { 1: "off", 2: "off", 3: "off", 4: "off", 5: "off", 6: "off", 7: "off", 8: "off", 9: "off" };
+
+function game(){
+    $('.gameScreen>*').toggle();
+    player1Turn();
+}
+
 $(document).ready(function(){
   askPlayer();
   initiateVars();
@@ -25,7 +31,6 @@ function askPlayer(){
     $('.askPlayer>.options>div:nth-child(2)').click(function(){ player1 = "O";  computer = "X"; game(); });
   }
 
-  $('.gameScreen>*').toggle();
   $('.askPlayer').toggle();
   $('.askPlayer').html("<div class='message'>How do you want to play?</div><div class=options><div>One Player</div><div>Two Player</div></div");
   $('.askPlayer>.options>div:nth-child(1)').click(function(){ players = 1; askXO(); });
@@ -52,7 +57,7 @@ function initiateVars(){
   }
 }
 
-function eventHandlers(){
+function player1Turn(){
   $('.sec').click(function(){
     if(turn == "p1"){
       var index = $(this).index();
@@ -71,10 +76,6 @@ function eventHandlers(){
   });
 }
 
-function game(){
-    $('.gameScreen>*').toggle();
-    eventHandlers();
-}
 
 function computerTurn(){ var index;
   myVar = setTimeout(function(){
