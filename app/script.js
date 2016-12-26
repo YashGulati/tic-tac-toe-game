@@ -83,7 +83,7 @@ function computerTurn(){ var index;
   myVar = setTimeout(function(){
     if( tokensUsed == 9 ){ return; }
     index = computeIndex();
-    while( sections[index+1] == "on"  ){
+    while( sections[index+1] != "off"  ){
       index = computeIndex();
     }
     var left = sec[index].css('left');
@@ -103,10 +103,16 @@ function showToken(index, token){
   tokensUsed++;
 }
 
-function computeIndex(){
+function computeIndex(){ var flag,i,count=0,adjacents=0;
   if(tokensUsed <= 3 )
     return Math.floor(Math.random() * 9);
-  else
+  else{
+
+    for(i=1;i<=3;i++){
+      if( sections[i] == "on" )
+        count++;
+    }
+    console.log(count);
     return Math.floor(Math.random() * 9);
-    
+  }
 }
