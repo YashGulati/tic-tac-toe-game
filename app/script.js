@@ -11,26 +11,8 @@ var sections = { 1: "off", 2: "off", 3: "off", 4: "off", 5: "off", 6: "off", 7: 
 
 function game(){ var turnNumber;
     $('.gameScreen>*').toggle();
-    for(turnNumber=1;turnNumber<=9;turnNumber++){
-      if(turnNumber%2==0)
-        player1Turn();
-      else{
-        function compTurn(){
-          if(tokensUsed===tokensUsed_cache) {
-            setTimeout(compTurn, 50);
-            return;
-          }
-          tokensUsed_cache=tokensUsed;
-        }
-        compTurn();
-      }
-
-      }
-
-
+    player1TurnHandler();
     }
-
-}
 
 $(document).ready(function(){
   askPlayer();
@@ -76,7 +58,7 @@ function initiateVars(){
   }
 }
 
-function player1Turn(){
+function player1TurnHandler(){
   $('.sec').on("click",function(){
     if(turn == "p1"){
       var index = $(this).index();
@@ -90,6 +72,7 @@ function player1Turn(){
       turn = "com";
       tokensUsed++;
       sections[index+1] = "on";
+      computerTurn();
     }
   });
 }
