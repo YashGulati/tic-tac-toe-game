@@ -86,17 +86,17 @@ function computerTurn(){ var index;
     while( sections[index+1] != "off"  ){
       index = computeIndex();
     }
-    var left = sec[index].css('left');
-    var top = sec[index].css('top');
-    cross[index].css('display','block');
-    cross[index].css('left',left);
-    cross[index].css('top',top);
-    cross[index].css('z-index','99');
     showToken(index, computer);
   }, 1000);
 }
 
 function showToken(index, token){
+  var left = sec[index].css('left');
+  var top = sec[index].css('top');
+  cross[index].css('display','block');
+  cross[index].css('left',left);
+  cross[index].css('top',top);
+  cross[index].css('z-index','99');
   cross[index].html(token);
   sections[index+1] = "on";
   if (turn == "com") turn = "p1";
