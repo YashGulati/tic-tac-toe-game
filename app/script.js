@@ -21,7 +21,7 @@ function askPlayer(){
     $(".options>div:nth-child(2)").html("O");
     $(".options").css("font-size","3em");
     $(".message").css("margin","10vh 10vh 2vh 10vh");
-    $('.askPlayer>.options>div:nth-child(1)').click(function(){ player1 = "X"; computer = "O";  game(); });
+    $('.askPlayer>.options>div:nth-child(1)').click(function(){ player1 = "X"; computer = "O"; game(); });
     $('.askPlayer>.options>div:nth-child(2)').click(function(){ player1 = "O";  computer = "X"; game(); });
   }
 
