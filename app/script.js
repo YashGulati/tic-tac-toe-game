@@ -92,27 +92,31 @@ function computerTurn(){ var index;
     cross[index].css('left',left);
     cross[index].css('top',top);
     cross[index].css('z-index','99');
-    cross[index].html(computer);
     showToken(index, computer);
   }, 1000);
 }
 
 function showToken(index, token){
+  cross[index].html(token);
   sections[index+1] = "on";
   if (turn == "com") turn = "p1";
   tokensUsed++;
 }
 
-function computeIndex(){ var flag,i,count=0,adjacents=0;
-  if(tokensUsed <= 3 )
+function computeIndex(){ var flag,i,adjacents=0,remainingSlot=0;
+  if(tokensUsed < 3 )
     return Math.floor(Math.random() * 9);
   else{
 
     for(i=1;i<=3;i++){
-      if( sections[i] == "on" )
-        count++;
+      if( sections[i+1] == player1 )
+        adjacents++;
+      else
+        remainingSlot = i;
     }
-    console.log(count);
+    console.log(adjacents);
+    if(adjacents == 2)
+      console.log("Remaining Slot: "+remainingSlot);
     return Math.floor(Math.random() * 9);
   }
 }
