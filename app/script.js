@@ -14,6 +14,17 @@ $(document).ready(function(){
 });
 
 function askPlayer(){
+
+  function askXO(){
+    $(".message").html("Would you like to be X or O?");
+    $(".options>div:nth-child(1)").html("X");
+    $(".options>div:nth-child(2)").html("O");
+    $(".options").css("font-size","3em");
+    $(".message").css("margin","10vh 10vh 2vh 10vh");
+    $('.askPlayer>.options>div:nth-child(1)').click(function(){ player1 = "X"; computer = "O";  game(); });
+    $('.askPlayer>.options>div:nth-child(2)').click(function(){ player1 = "O";  computer = "X"; game(); });
+  }
+
   $('.gameScreen>*').toggle();
   $('.askPlayer').toggle();
   $('.askPlayer').html("<div class='message'>How do you want to play?</div><div class=options><div>One Player</div><div>Two Player</div></div");
@@ -42,10 +53,6 @@ function initiateVars(){
 }
 
 function eventHandlers(){
-  // $('.cross').click(function(){
-  //     var index = $(this).index();
-  //     cross[index].css('display','none');
-  // });
   $('.sec').click(function(){
     if(turn == "p1"){
       var index = $(this).index();
@@ -62,16 +69,6 @@ function eventHandlers(){
       sections[index+1] = "on";
     }
   });
-}
-
-function askXO(){
-  $(".message").html("Would you like to be X or O?");
-  $(".options>div:nth-child(1)").html("X");
-  $(".options>div:nth-child(2)").html("O");
-  $(".options").css("font-size","3em");
-  $(".message").css("margin","10vh 10vh 2vh 10vh");
-  $('.askPlayer>.options>div:nth-child(1)').click(function(){ player1 = "X"; computer = "O";  game(); });
-  $('.askPlayer>.options>div:nth-child(2)').click(function(){ player1 = "O";  computer = "X"; game(); });
 }
 
 function game(){
